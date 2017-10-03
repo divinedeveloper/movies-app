@@ -2,8 +2,8 @@
 #	requirements.txt in the root directory of a project.
 django==1.8.9
 six==1.10.0
-#djangorestframework==3.3.2
-#django-autofixture==0.12.1
+djangorestframework==3.3.2
+django-autofixture==0.12.1
 
 
 
