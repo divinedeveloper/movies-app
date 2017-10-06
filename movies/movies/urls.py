@@ -19,7 +19,7 @@ from django.views.generic import TemplateView, RedirectView
 urlpatterns = [
     # url(r'^admin/', include(admin.site.urls)),
 
-    # url(r'^$', TemplateView.as_view(template_name="index.html"), name='home'),
+    url(r'^$', TemplateView.as_view(template_name="index.html"), name='home'),
 
     url(r'^movie-app/api/v1/', include('core.urls')),
 ]

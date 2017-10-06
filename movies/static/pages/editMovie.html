@@ -1,0 +1,65 @@
+<div ng-controller="MovieDetailCtrl">
+    <div class="messages">
+        <span class="error-message" ng-bind="errorMessage"></span>
+    </div>
+      
+    <form name="searchForm">
+
+      <div class="row">
+      <div class="col-sm-4">
+          <div class="form-group">
+              <input type="text" class="form-control" placeholder="Please paste Tenant API Key" ng-model="apiKey" name="apiKey" ng-required="true">
+          <span class="control-group error">
+              <span class="error text-danger" ng-if="searchForm.apiKey.$error.required">Required Field </span>
+          </span>
+
+          </div>
+      </div>
+
+      <div class="col-sm-4">
+          <div class="form-group">
+              <input type="text" class="form-control" placeholder="search questions by title" ng-model="title" name="title">
+          </div>
+      </div>
+
+      <div class="col-sm-4">
+          <div class="form-group">
+              <a id="get-iec-link" href ng-disabled="!searchForm.$valid" ng-click="searchQuestions()" 
+           class="btn btn-primary">Search Questions</a>
+          </div>
+      </div>
+
+      </div>
+    </form><br><br>
+    <div>
+      
+    </div><br><br>
+
+    <div class="container" ng-show="responseQuestions">
+
+       <span class="badge"> <h5> Found {{responseQuestions.count}} Questions </h5></span>
+       <br><br>
+
+       <div ng-repeat="question in responseQuestions.questions">
+          <div class="well well-sm">
+            <span> <h5><b> Question Title: {{question.title}} </b></h5></span><br>
+            <span>Question By User Id: {{question.user_id.id}}  Question By User: {{question.user_id.name}}</span><br><br>
+          </div>
+        
+          <div class="col-xs-12" ng-repeat="answer in question.answers">
+
+            <div class="well well-lg">
+              <span>Answer User Id:{{answer.user_id.id}}  Answer By User: {{answer.user_id.name}}</span><br>
+
+              <span> <h5><b> Answer : </b></h5></span><br>
+              <span>{{answer.body}}</span><br><br>
+            </div>
+            
+
+            
+          </div>
+       </div><br><br>
+
+    </div>
+
+  </div>

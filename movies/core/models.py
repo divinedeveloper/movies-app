@@ -12,5 +12,5 @@ class Location(models.Model):
 	movie = models.ForeignKey(Movie)
 
 class Timing(models.Model):
-	time = models.TimeField(blank = False)
+	time = models.DateTimeField(blank = False)
 	location = models.ForeignKey(Location)

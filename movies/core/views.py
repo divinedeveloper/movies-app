@@ -79,14 +79,14 @@ def add_movie(request):
 		movie.save()
 
 		movie_object = Movie.objects.get(id = movie.id)
-		location_object = None
+		# location_object = None
 
 		for each_location in jsonBody['locations']:
 			location = Location(name = each_location['name'], movie = movie_object)
 			location.save()
 
-			if not location_object:
-				location_object = Location.objects.get(id = location.id)
+			# if not location_object:
+			location_object = Location.objects.get(id = location.id)
 
 			for each_timing in each_location['timings']:
 				timing = Timing(time = each_timing['time'], location = location_object)

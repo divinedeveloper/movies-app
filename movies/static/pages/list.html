@@ -1,0 +1,47 @@
+<div ng-controller="MoviesListCtrl">
+    <div class="messages">
+        <span class="error-message" ng-bind="errorMessage"></span>
+    </div>
+      
+    <div>
+      
+    </div><br><br>
+
+    <div class="container">
+      <a id="new-movie-link" href ng-click="addNewMovie()" class="btn btn-md btn-primary">Add New Movie</a>
+    </div>
+
+    <div class="container" ng-show="responseMovies" data-ng-init="moviesList()">
+      
+       <span class="badge"><h5> Found {{responseMovies.count}} Movies </h5></span><br>
+      <!--  <br><br>
+
+       <div ng-repeat="movie in responseMovies.movies">
+          <div class="well well-sm">
+            <span> <h5><b> {{movie.name}} </b></h5></span><br>
+          </div>
+        
+          <div class="col-xs-12" ng-repeat="answer in question.answers">
+
+            <div class="well well-lg">
+              <span>Answer User Id:{{answer.user_id.id}}  Answer By User: {{answer.user_id.name}}</span><br>
+
+              <span> <h5><b> Answer : </b></h5></span><br>
+              <span>{{answer.body}}</span><br><br>
+            </div>
+          </div>
+       </div> -->
+
+       <table class="table table-striped table-hover" ng-show="responseMovies.movies">
+            <tr ng-repeat= "movie in responseMovies.movies">
+              <td><span>{{$index + 1}}</span></td>
+              <!-- <td><span> : </span></td> -->
+            <td><a id="view-movie-link" href ng-click="viewMovie(movie.id)"><h5><b> {{movie.name}} </b></h5></a></td>
+              <!-- <td><span><h5><b> {{movie.name}} </b></h5></span></td> -->
+            </tr>
+           
+        </table>
+
+    </div>
+
+  </div>

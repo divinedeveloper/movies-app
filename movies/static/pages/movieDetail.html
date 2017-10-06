@@ -1,0 +1,31 @@
+<div class="container" ng-controller="MovieDetailCtrl">
+    <div class="messages">
+        <span class="error-message" ng-bind="errorMessage"></span>
+    </div>
+      
+    <div ng-show="responseMovie" data-ng-init="getDetails()">
+     <!-- <div ng-show="responseCountData"> -->
+
+     <div class="box1">
+                                <span class="li_heart"></span>
+                  <h3><div id="no_of_users" class="label label-success"> {{responseMovie.name}}
+                                </div></h3>
+
+              <div class = "centre">
+                <a id="edit-movie-link" href ng-click="editMovie(responseMovie.id)" class="btn btn-md btn-warning">Edit Movie</a>
+                <a id="delete-movie-link" href ng-click="deleteMovie(responseMovie.id)" class="btn btn-md btn-danger">Delete Movie</a>
+              </div>
+                            </div>
+
+     <ul ng-show="responseMovie.locations">
+        <li ng-repeat= "location in responseMovie.locations" ><h4><b>{{location.name}}</b></h4>
+            <ul ng-show="location.timings">
+              <li ng-repeat= "timing in location.timings" ><h4>{{timing.time | date:"dd/MM/yyyy 'at' h:mma"}}</h4></li>
+            </ul>
+        </li>
+       
+     </ul>
+
+  </div>
+
+  </div>
